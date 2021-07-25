@@ -14,7 +14,7 @@ class DateTime
      * @param int $seconds 秒
      * @return string 00:00:00格式的时间
      */
-    static function secondsToMinutes(int $seconds = 0): string
+    static function secondsToMinutes(int $seconds = 0)
     {
         $hour = floor($seconds / 60);
         $seconds = $seconds % 60;
@@ -30,7 +30,7 @@ class DateTime
      * @param string $lang 语言，zh_CN为默认中文简体，其它为英文
      * @return array|string 周几
      */
-    static function dayOfWeek(int $timestamp, string $lang = 'zh_CN'): array|string
+    static function dayOfWeek(int $timestamp, string $lang = 'zh_CN')
     {
         $day = (new Carbon($timestamp))->dayOfWeek;
         return self::week($lang, $day);
@@ -43,7 +43,7 @@ class DateTime
      * @param int|null $index 一周内的第几天，注意0为周日
      * @return array|string 如果没传入index，返回的是一周的数组，反之是index对应的第几天
      */
-    static function week(string $lang = 'zh_CN', int $index = null): array|string
+    static function week(string $lang = 'zh_CN', int $index = null)
     {
         $weekOfChinese = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
         $weekOfEnglish = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

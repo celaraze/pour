@@ -10,7 +10,7 @@ class Uni
      * @param string $string 需要处理的字符串
      * @return string 处理结果
      */
-    static function getNumFromString(string $string = ''): string
+    static function getNumFromString(string $string = '')
     {
         $string = trim($string);
         if (empty($string)) {
@@ -33,7 +33,7 @@ class Uni
      * @param string $string 需要处理的字符串
      * @return string
      */
-    static function cutString(string $begin, string $end, string $string): string
+    static function cutString(string $begin, string $end, string $string)
     {
         $b = mb_strpos($string, $begin) + mb_strlen($begin);
         $e = mb_strpos($string, $end) - $b;
@@ -47,7 +47,7 @@ class Uni
      * @param string $string 需要处理的json字符串
      * @return string|array|null 处理结果
      */
-    static function jsonStringify(string $string): string|array|null
+    static function jsonStringify(string $string)
     {
         if (preg_match('/\w:/', $string)) {
             $string = preg_replace('/(\w+):/is', '"$1":', $string);
@@ -61,7 +61,7 @@ class Uni
      * @param string $string 需要处理的字符串
      * @return string|string[]|null 处理结果
      */
-    static function trim(string $string): array|string|null
+    static function trim(string $string)
     {
         $string = preg_replace("/\n/", '', $string);
         $string = preg_replace("/\r/", '', $string);
@@ -76,7 +76,7 @@ class Uni
      * @param string $string 需要处理的字符串
      * @return string 处理结果
      */
-    static function getChineseFromString(string $string): string
+    static function getChineseFromString(string $string)
     {
         preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $string, $chinese);
         return implode('', $chinese[0]);
@@ -88,7 +88,7 @@ class Uni
      * @param array $arrayB 后者数组
      * @return array 处理得到前者比后者多的值
      */
-    static function diffTwoArray(array $arrayA, array $arrayB): array
+    static function diffTwoArray(array $arrayA, array $arrayB)
     {
         $result = array();
         foreach ($arrayA as $a) {
@@ -107,7 +107,7 @@ class Uni
      * @param int $stringify 是否以r,g,b格式输出，默认否
      * @return string|array 处理结果
      */
-    static function randomRGB(int $min, int $max, int $stringify = 0): string|array
+    static function randomRGB(int $min, int $max, int $stringify = 0)
     {
         $r = rand($min, $max);
         $g = rand($min, $max);
@@ -125,7 +125,7 @@ class Uni
      * @param int $length 需要生成的字符串长度
      * @return string 处理结果
      */
-    static function randomNumberString(int $length = 6): string
+    static function randomNumberString(int $length = 6)
     {
         $result = '';
         for ($i = 0; $i < $length; $i++) {
@@ -140,7 +140,7 @@ class Uni
      * @param bool $hasKeys 返回结果是否需要键
      * @return string[] 处理结果
      */
-    static function genders(bool $hasKeys = false): array
+    static function genders(bool $hasKeys = false)
     {
         if ($hasKeys) {
             return ['男' => '男', '女' => '女', '无' => '无'];
@@ -155,7 +155,7 @@ class Uni
      * @param bool $hasKeys 返回的结果是否需要键
      * @return string[] 处理结果
      */
-    static function httpMethods(bool $hasKeys = false): array
+    static function httpMethods(bool $hasKeys = false)
     {
         if ($hasKeys) {
             return [
@@ -176,7 +176,7 @@ class Uni
      * @param bool $hasKeys 返回的结果是否需要键
      * @return string[] 处理结果
      */
-    static function yesOrNo(bool $hasKeys = false): array
+    static function yesOrNo(bool $hasKeys = false)
     {
         if ($hasKeys) {
             return [
@@ -194,7 +194,7 @@ class Uni
      * @param bool $hasKeys 返回的结果是否需要键
      * @return string[] 处理结果
      */
-    static function dateCycles(bool $hasKeys): array
+    static function dateCycles(bool $hasKeys)
     {
         if ($hasKeys) {
             return [

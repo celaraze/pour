@@ -11,7 +11,7 @@ class System
      *
      * @return string CPU使用率
      */
-    static function getUsageOfLinuxCPU(): string
+    static function getUsageOfLinuxCPU()
     {
         $step1 = self::getLinuxCPU();
         sleep(1);
@@ -28,7 +28,7 @@ class System
      *
      * @return array 状态
      */
-    static function getLinuxCPU(): array
+    static function getLinuxCPU()
     {
         $mode = "/(cpu)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)[\s]+([0-9]+)/";
         $string = shell_exec("more /proc/stat");
@@ -45,7 +45,7 @@ class System
      *
      * @return int|string 使用率
      */
-    static function getUsageOfLinuxMemory(): int|string
+    static function getUsageOfLinuxMemory()
     {
         $str = shell_exec("more /proc/meminfo");
         $mode = "/(.+):\s*([0-9]+)/";
