@@ -2,6 +2,8 @@
 
 namespace Pour;
 
+use Exception;
+
 class Uni
 {
     /**
@@ -217,5 +219,32 @@ class Uni
     static function disabled(): array
     {
         return ['正常', '禁用'];
+    }
+
+    /**
+     * 通用的接口返回构造数组.
+     * @param int $code
+     * @param string $message
+     * @param $data
+     * @param bool $array
+     * @return array
+     */
+    static function make(int $code, string $message, $data = null, bool $array = false)
+    {
+        $return = [];
+        $return['code'] = $code;
+        if ($data instanceof Exception) {
+            $return['code'] = 500;
+            $message = $data->getLine() . ' : ' . $data->getMessage();
+            $data = [];
+        }
+        $return['message'] = $message;
+        $return['data'] = $data;
+
+        if ($array) {
+            return $return;
+        }
+
+        return response()->json($return);
     }
 }
